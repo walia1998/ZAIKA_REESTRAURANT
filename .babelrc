@@ -1,4 +1,11 @@
 // with options
 {
-    "plugins": [ ["transform-remove-console", { "exclude": [ "error", "warn"] }] ]
+    // "plugins": [ ["transform-remove-console", { "exclude": [ "error", "warn"] }] ]
   }
+
+
+  // kya bro sir ne bataya to tha ye 
+
+  // ye jab on kijiyega tab deploy ho 
+
+  // ya fir ye npm run build commadn run kre ok

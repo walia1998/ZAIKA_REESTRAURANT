@@ -2963,23 +2963,24 @@ var _body = require("./components/Body");
 var _bodyDefault = parcelHelpers.interopDefault(_body);
 var _footer = require("./components/Footer");
 var _footerDefault = parcelHelpers.interopDefault(_footer);
+console.log("hello");
 // this is chaning ?
 const AppLayout = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 11,
+                lineNumber: 13,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 12,
+                lineNumber: 14,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 13,
+                lineNumber: 15,
                 columnNumber: 7
             }, undefined)
         ]
@@ -2989,7 +2990,7 @@ _c = AppLayout;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AppLayout, {}, void 0, false, {
     fileName: "src/App.jsx",
-    lineNumber: 17,
+    lineNumber: 19,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -27557,6 +27558,15 @@ const Body = ()=>{
     const [restraurants, setRestraurants] = (0, _react.useState)((0, _constants.restrauntList));
     const [searchText, setSearchText] = (0, _react.useState)(""); //==> [variable name , fxn to update the variable]
     // to create state variable like this in React 
+    (0, _react.useEffect)(()=>{
+        // console.log("call this when dependency is changed ")
+        getRestraurant();
+    }, []); // This is known as a dependicis array 
+    async function getRestraurant() {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.0946298&lng=77.2074614&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        console.log(json);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27572,7 +27582,7 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/components/Body.jsx",
-                        lineNumber: 24,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -27586,13 +27596,13 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.jsx",
-                        lineNumber: 27,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 23,
+                lineNumber: 33,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27603,7 +27613,7 @@ const Body = ()=>{
                         key: restraurant.info.id,
                         __source: {
                             fileName: "src/components/Body.jsx",
-                            lineNumber: 36,
+                            lineNumber: 46,
                             columnNumber: 16
                         },
                         __self: undefined
@@ -27611,13 +27621,13 @@ const Body = ()=>{
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 34,
+                lineNumber: 44,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(Body, "dOgT4Lx/1zp8fctUfM6bCBluzls=");
+_s(Body, "4RQWIoqcXmT+yDZtyAWfilDoyUk=");
 _c = Body;
 exports.default = Body;
 var _c;

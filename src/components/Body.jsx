@@ -1,6 +1,6 @@
 import { restrauntList } from "../constants";
 import RestraurantCard from "./RestrauntCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 //What is State?
 //What is React Hooks? ==> This is jsut a function 
@@ -19,9 +19,22 @@ const Body = () => {
 //SearchText is a local state variable
 const[restraurants, setRestraurants] = useState(restrauntList)
 const [searchText, setSearchText] = useState("");   //==> [variable name , fxn to update the variable]
-console.log("render ()")
 // to create state variable like this in React 
 
+
+useEffect(()=>{
+  // console.log("call this when dependency is changed ")
+
+  getRestraurant();
+}, []); // This is known as a dependicis array 
+
+
+async function getRestraurant ()  {
+  const  data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.0946298&lng=77.2074614&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING") ;
+  const json = await data.json(); 
+
+  console.log(json);
+} 
   return (
     <>
       <div className="search-container">
