@@ -2,39 +2,33 @@ import { restrauntList } from "../constants";
 import RestraurantCard from "./RestrauntCard";
 import { useState, useEffect } from "react";
 
-//What is State?
-//What is React Hooks? ==> This is jsut a function 
-//What is useState? 
-
-function  filterData(searchText, restraurants) {
-   const filterData = restraurants.filter((restraurant) => 
-    restraurant.info && restraurant.info.name && restraurant.info.name.includes(searchText)
-   );
+function filterData(searchText, restraurants) {
+  const filterData = restraurants.filter(
+    (restraurant) =>
+      restraurant.info &&
+      restraurant.info.name &&
+      restraurant.info.name.includes(searchText)
+  );
   return filterData;
 }
 
 const Body = () => {
-// let searchTxt = "Modak"; // in js we create variables like this but in React we create 
+  const [restraurants, setRestraurants] = useState(restrauntList);
+  const [searchText, setSearchText] = useState(""); //==> [variable name , fxn to update the variable]
 
-//SearchText is a local state variable
-const[restraurants, setRestraurants] = useState(restrauntList)
-const [searchText, setSearchText] = useState("");   //==> [variable name , fxn to update the variable]
-// to create state variable like this in React 
+  useEffect(() => {
+    //API CALL
+    getRestraurant();
+  }, []);
 
-
-useEffect(()=>{
-  // console.log("call this when dependency is changed ")
-
-  getRestraurant();
-}, []); // This is known as a dependicis array 
-
-
-async function getRestraurant ()  {
-  const  data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.0946298&lng=77.2074614&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING") ;
-  const json = await data.json(); 
-
-  console.log(json);
-} 
+  async function getRestraurant() {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.1043822&lng=77.17314019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const json = await data.json();
+    console.log(json);
+    // setRestraurants(json.data.cards)
+  }
   return (
     <>
       <div className="search-container">
@@ -47,14 +41,17 @@ async function getRestraurant ()  {
             setSearchText(e.target.value);
           }}
         />
-        <button className="search-btn"
-        onClick={() => {
-          //need to filter the data and 
-          const info = filterData(searchText,restraurants);
-          //update the state--> restraurant variable.
-          setRestraurants(info);
-        }}
-        >Search</button>
+        <button
+          className="search-btn"
+          onClick={() => {
+            //need to filter the data and
+            const info = filterData(searchText, restraurants);
+            //update the state--> restraurant variable.
+            setRestraurants(info);
+          }}
+        >
+          Search
+        </button>
       </div>
       <div className="restaurant-list">
         {restraurants.map((restraurant) => {

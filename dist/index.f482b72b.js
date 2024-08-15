@@ -27544,28 +27544,23 @@ var _constants = require("../constants");
 var _restrauntCard = require("./RestrauntCard");
 var _restrauntCardDefault = parcelHelpers.interopDefault(_restrauntCard);
 var _s = $RefreshSig$();
-//What is State?
-//What is React Hooks? ==> This is jsut a function 
-//What is useState? 
 function filterData(searchText, restraurants) {
     const filterData = restraurants.filter((restraurant)=>restraurant.info && restraurant.info.name && restraurant.info.name.includes(searchText));
     return filterData;
 }
 const Body = ()=>{
     _s();
-    // let searchTxt = "Modak"; // in js we create variables like this but in React we create 
-    //SearchText is a local state variable
     const [restraurants, setRestraurants] = (0, _react.useState)((0, _constants.restrauntList));
     const [searchText, setSearchText] = (0, _react.useState)(""); //==> [variable name , fxn to update the variable]
-    // to create state variable like this in React 
     (0, _react.useEffect)(()=>{
-        // console.log("call this when dependency is changed ")
+        //API CALL
         getRestraurant();
-    }, []); // This is known as a dependicis array 
+    }, []);
     async function getRestraurant() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.0946298&lng=77.2074614&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=31.1043822&lng=77.17314019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         console.log(json);
+    // setRestraurants(json.data.cards)
     }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -27582,13 +27577,13 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/components/Body.jsx",
-                        lineNumber: 34,
+                        lineNumber: 24,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "search-btn",
                         onClick: ()=>{
-                            //need to filter the data and 
+                            //need to filter the data and
                             const info = filterData(searchText, restraurants);
                             //update the state--> restraurant variable.
                             setRestraurants(info);
@@ -27596,13 +27591,13 @@ const Body = ()=>{
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.jsx",
-                        lineNumber: 37,
+                        lineNumber: 27,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 33,
+                lineNumber: 23,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27613,7 +27608,7 @@ const Body = ()=>{
                         key: restraurant.info.id,
                         __source: {
                             fileName: "src/components/Body.jsx",
-                            lineNumber: 46,
+                            lineNumber: 38,
                             columnNumber: 16
                         },
                         __self: undefined
@@ -27621,7 +27616,7 @@ const Body = ()=>{
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.jsx",
-                lineNumber: 44,
+                lineNumber: 36,
                 columnNumber: 7
             }, undefined)
         ]
@@ -27646,1090 +27641,979 @@ parcelHelpers.export(exports, "restrauntList", ()=>restrauntList);
 const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 const restrauntList = [
     {
-        info: {
-            id: "651216",
-            name: "McDonald's",
-            cloudinaryImageId: "535fc9f9c135f7982317bbb6a64a1ffc",
-            locality: "Shimla",
-            areaName: "Tehsil Shimla",
-            costForTwo: "\u20B9400 for two",
-            cuisines: [
-                "American",
-                "Fast Food"
-            ],
-            avgRating: 4.4,
-            parentId: "630",
-            avgRatingString: "4.4",
-            totalRatingsString: "500+",
-            promoted: true,
-            adTrackingId: "cid=16006337~p=0~adgrpid=16006337#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=651216~eid=f0983243-7df8-4f9c-ae55-8082b4519f44~srvts=1722688938770~collid=45995",
-            sla: {
-                deliveryTime: 31,
-                lastMileTravel: 3,
-                serviceability: "SERVICEABLE",
-                slaString: "30-35 mins",
-                lastMileTravelString: "3.0 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=651216",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "709268",
-            name: "Dobby's",
-            cloudinaryImageId: "8f32ce0748e6d75c44cbe30adba4c3c4",
-            locality: "Lower Bazar",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
-                "Pizzas",
-                "Burger",
-                "Italian"
-            ],
-            avgRating: 3.8,
-            parentId: "73745",
-            avgRatingString: "3.8",
-            totalRatingsString: "50+",
-            sla: {
-                deliveryTime: 28,
-                lastMileTravel: 0.1,
-                serviceability: "SERVICEABLE",
-                slaString: "25-30 mins",
-                lastMileTravelString: "0.1 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 20:45:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textExtendedBadges: {},
-                    textBased: {},
-                    imageBased: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=709268",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "876001",
-            name: "New Singh Tandoor",
-            cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/25/630d20bd-5b3e-49a0-ab9f-4ec73e1b5209_876001.jpg",
-            locality: "Lower Bazar",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9300 for two",
-            cuisines: [
-                "Chinese",
-                "Tandoor",
-                "Fast Food",
-                "Cafe"
-            ],
-            avgRating: 3.6,
-            parentId: "513581",
-            avgRatingString: "3.6",
-            totalRatingsString: "20+",
-            sla: {
-                deliveryTime: 24,
-                serviceability: "SERVICEABLE",
-                slaString: "20-25 mins",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            aggregatedDiscountInfoV3: {
-                header: "\u20B9125 OFF",
-                subHeader: "ABOVE \u20B9299",
-                discountTag: "FLAT DEAL"
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            isNewlyOnboarded: true,
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=876001",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "712199",
-            name: "Bistro Hut",
-            cloudinaryImageId: "a1b474576d7b2801cfd53a77475d5cbe",
-            locality: "Lower Bazar",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
-                "Pizzas",
-                "Pastas",
-                "Burgers"
-            ],
-            avgRating: 3.4,
-            parentId: "425440",
-            avgRatingString: "3.4",
-            totalRatingsString: "20+",
-            sla: {
-                deliveryTime: 27,
-                serviceability: "SERVICEABLE",
-                slaString: "25-30 mins",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            aggregatedDiscountInfoV3: {
-                header: "\u20B9150 OFF",
-                subHeader: "ABOVE \u20B9349",
-                discountTag: "FLAT DEAL"
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=712199",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "121100",
-            name: "Pyramid Express",
-            cloudinaryImageId: "sqdtvs3lic6tpw4ni3vc",
-            locality: "Mall Road",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9300 for two",
-            cuisines: [
-                "Chinese",
-                "Biryani",
-                "Fast Food",
-                "Pizzas"
-            ],
-            avgRating: 4.3,
-            parentId: "163125",
-            avgRatingString: "4.3",
-            totalRatingsString: "100+",
-            promoted: true,
-            adTrackingId: "cid=16141194~p=1~adgrpid=16141194#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=121100~eid=00068f55-f9e2-4d33-ac48-6f206f897cd0~srvts=1722688938770~collid=45995",
-            sla: {
-                deliveryTime: 42,
-                lastMileTravel: 3.6,
-                serviceability: "SERVICEABLE",
-                slaString: "40-45 mins",
-                lastMileTravelString: "3.6 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textExtendedBadges: {},
-                    textBased: {},
-                    imageBased: {}
-                }
-            },
-            aggregatedDiscountInfoV3: {
-                header: "40% OFF",
-                subHeader: "UPTO \u20B980"
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=121100",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "708030",
-            name: "Kay Cee",
-            cloudinaryImageId: "26ffb5987fbdb22dd65133af3125d799",
-            locality: "Lower Bazar",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
-                "North Indian",
-                "Fast Food",
-                "Chinese",
-                "Momos",
-                "Biryani"
-            ],
-            avgRating: 4.2,
-            parentId: "423278",
-            avgRatingString: "4.2",
-            totalRatingsString: "100+",
-            sla: {
-                deliveryTime: 30,
-                serviceability: "SERVICEABLE",
-                slaString: "30-35 mins",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textExtendedBadges: {},
-                    textBased: {},
-                    imageBased: {}
-                }
-            },
-            aggregatedDiscountInfoV3: {
-                header: "\u20B9150 OFF",
-                subHeader: "ABOVE \u20B9349",
-                discountTag: "FLAT DEAL"
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=708030",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "124435",
-            name: "Domino's Pizza",
-            cloudinaryImageId: "d0450ce1a6ba19ea60cd724471ed54a8",
-            locality: "Mall Road",
-            areaName: "Longwood",
-            costForTwo: "\u20B9400 for two",
-            cuisines: [
+        "info": {
+            "id": "124435",
+            "name": "Domino's Pizza",
+            "cloudinaryImageId": "d0450ce1a6ba19ea60cd724471ed54a8",
+            "locality": "Mall Road",
+            "areaName": "Longwood",
+            "costForTwo": "\u20B9400 for two",
+            "cuisines": [
                 "Pizzas",
                 "Italian",
                 "Pastas",
                 "Desserts"
             ],
-            avgRating: 4.2,
-            parentId: "2456",
-            avgRatingString: "4.2",
-            totalRatingsString: "1K+",
-            sla: {
-                deliveryTime: 25,
-                serviceability: "SERVICEABLE",
-                slaString: "20-25 mins",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 4.2,
+            "parentId": "2456",
+            "avgRatingString": "4.2",
+            "totalRatingsString": "1K+",
+            "sla": {
+                "deliveryTime": 25,
+                "lastMileTravel": 0.1,
+                "serviceability": "SERVICEABLE",
+                "slaString": "20-25 mins",
+                "lastMileTravelString": "0.1 km",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
             },
-            badges: {
-                textExtendedBadges: [
+            "badges": {
+                "textExtendedBadges": [
                     {
-                        iconId: "Ratnesh_Badges/free%20del%20icon.png",
-                        shortDescription: "Free Delivery",
-                        fontColor: "#7E808C"
+                        "iconId": "Ratnesh_Badges/free%20del%20icon.png",
+                        "shortDescription": "Free Delivery",
+                        "fontColor": "#7E808C"
                     }
                 ]
             },
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {
-                        badgeObject: [
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {
+                        "badgeObject": [
                             {
-                                attributes: {
-                                    iconId: "Ratnesh_Badges/free%20del%20icon.png",
-                                    description: "",
-                                    shortDescription: "Free Delivery",
-                                    fontColor: "#7E808C"
+                                "attributes": {
+                                    "description": "",
+                                    "fontColor": "#7E808C",
+                                    "iconId": "Ratnesh_Badges/free%20del%20icon.png",
+                                    "shortDescription": "Free Delivery"
                                 }
                             }
                         ]
                     }
                 }
             },
-            aggregatedDiscountInfoV3: {
-                header: "\u20B9150 OFF",
-                subHeader: "ABOVE \u20B9299",
-                discountTag: "FLAT DEAL"
+            "aggregatedDiscountInfoV3": {
+                "header": "ITEMS",
+                "subHeader": "AT \u20B9299"
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=124435",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/dominos-pizza-mall-road-longwood-shimla-124435",
+            "type": "WEBLINK"
         }
     },
     {
-        info: {
-            id: "923641",
-            name: "Sachins Dragon Villa",
-            cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/7/10/245c518d-94e1-4dfa-bbfb-e0f92b5f2baa_923641.jpg",
-            locality: "Mall Road",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9300 for two",
-            cuisines: [
-                "Chinese",
-                "Fast Food"
-            ],
-            parentId: "174132",
-            avgRatingString: "NEW",
-            sla: {
-                deliveryTime: 26,
-                serviceability: "SERVICEABLE",
-                slaString: "25-30 mins",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            isNewlyOnboarded: true,
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=923641",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "118632",
-            name: "Tara Bhojanalya",
-            cloudinaryImageId: "c4kar7slsocwabjnncsp",
-            locality: "Mall Road",
-            areaName: "Shilli",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
+        "info": {
+            "id": "119281",
+            "name": "Singh's Tandoor.",
+            "cloudinaryImageId": "ialllhddzd6s0tnxtegb",
+            "locality": "Mall Road",
+            "areaName": "Longwood",
+            "costForTwo": "\u20B9100 for two",
+            "cuisines": [
                 "North Indian",
                 "Chinese",
                 "Tandoor",
                 "Biryani",
                 "Beverages"
             ],
-            avgRating: 4.3,
-            parentId: "201178",
-            avgRatingString: "4.3",
-            totalRatingsString: "100+",
-            sla: {
-                deliveryTime: 27,
-                lastMileTravel: 0.9,
-                serviceability: "SERVICEABLE",
-                slaString: "25-30 mins",
-                lastMileTravelString: "0.9 km",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 3.9,
+            "parentId": "188632",
+            "avgRatingString": "3.9",
+            "totalRatingsString": "1K+",
+            "sla": {
+                "deliveryTime": 30,
+                "serviceability": "SERVICEABLE",
+                "slaString": "30-35 mins",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 21:45:00",
+                "opened": true
             },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
+            "badges": {},
+            "isOpen": true,
+            "aggregatedDiscountInfoV2": {},
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
                 }
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=118632",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/singhs-tandoor-mall-road-longwood-shimla-119281",
+            "type": "WEBLINK"
         }
     },
     {
-        info: {
-            id: "708164",
-            name: "Sharma Sweet",
-            cloudinaryImageId: "107959de2f649ea432e2ad4ce50ba1cd",
-            locality: "Krishna Nagar",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9100 for two",
-            cuisines: [
-                "North Indian",
+        "info": {
+            "id": "121094",
+            "name": "Pyramid",
+            "cloudinaryImageId": "8679ecfda4b61dbb39bb1f20ff8042c2",
+            "locality": "Bridge View Recency",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9200 for two",
+            "cuisines": [
                 "Chinese",
+                "Cafe",
                 "Fast Food"
             ],
-            avgRating: 4.1,
-            veg: true,
-            parentId: "423342",
-            avgRatingString: "4.1",
-            totalRatingsString: "50+",
-            sla: {
-                deliveryTime: 31,
-                lastMileTravel: 0.4,
-                serviceability: "SERVICEABLE",
-                slaString: "30-35 mins",
-                lastMileTravelString: "0.4 km",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 4.2,
+            "parentId": "9044",
+            "avgRatingString": "4.2",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 48,
+                "lastMileTravel": 3.6,
+                "serviceability": "SERVICEABLE",
+                "slaString": "45-50 mins",
+                "lastMileTravelString": "3.6 km",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 21:00:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
             },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
                 }
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "aggregatedDiscountInfoV3": {
+                "header": "ITEMS",
+                "subHeader": "AT \u20B9199"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=708164",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/pyramid-bridge-view-recency-mall-road-shimla-121094",
+            "type": "WEBLINK"
         }
     },
     {
-        info: {
-            id: "873119",
-            name: "New Kaabil Kitchen",
-            cloudinaryImageId: "RX_THUMBNAIL/IMAGES/VENDOR/2024/4/26/e5617d87-7c05-4e67-98f6-f395c09bf36f_873119.jpg",
-            locality: "Middle Bazar",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
-                "Chinese",
-                "Fast Food",
-                "Beverages"
-            ],
-            avgRating: 4.3,
-            parentId: "512584",
-            avgRatingString: "4.3",
-            totalRatingsString: "4",
-            sla: {
-                deliveryTime: 24,
-                serviceability: "SERVICEABLE",
-                slaString: "20-25 mins",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
-                }
-            },
-            aggregatedDiscountInfoV3: {
-                header: "10% OFF",
-                subHeader: "UPTO \u20B940"
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            isNewlyOnboarded: true,
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=873119",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "119281",
-            name: "Singh's Tandoor.",
-            cloudinaryImageId: "ialllhddzd6s0tnxtegb",
-            locality: "Mall Road",
-            areaName: "Longwood",
-            costForTwo: "\u20B9100 for two",
-            cuisines: [
+        "info": {
+            "id": "118632",
+            "name": "Tara Bhojanalya",
+            "cloudinaryImageId": "c4kar7slsocwabjnncsp",
+            "locality": "Mall Road",
+            "areaName": "Shilli",
+            "costForTwo": "\u20B9200 for two",
+            "cuisines": [
                 "North Indian",
                 "Chinese",
                 "Tandoor",
                 "Biryani",
                 "Beverages"
             ],
-            avgRating: 3.9,
-            parentId: "188632",
-            avgRatingString: "3.9",
-            totalRatingsString: "1K+",
-            sla: {
-                deliveryTime: 34,
-                serviceability: "SERVICEABLE",
-                slaString: "30-35 mins",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 4.3,
+            "parentId": "201178",
+            "avgRatingString": "4.3",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 31,
+                "lastMileTravel": 0.9,
+                "serviceability": "SERVICEABLE",
+                "slaString": "30-35 mins",
+                "lastMileTravelString": "0.9 km",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 21:45:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
             },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
                 }
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "aggregatedDiscountInfoV3": {
+                "header": "ITEMS",
+                "subHeader": "AT \u20B9259"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=119281",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/tara-bhojanalya-mall-road-shilli-shimla-118632",
+            "type": "WEBLINK"
         }
     },
     {
-        info: {
-            id: "708032",
-            name: "Wood Street Cafe",
-            cloudinaryImageId: "5b17fc2fe703cfaa5478f2994fdf2e1d",
-            locality: "Lakkar Bazzar Shimla",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9350 for two",
-            cuisines: [
+        "info": {
+            "id": "724816",
+            "name": "The Brew Estate",
+            "cloudinaryImageId": "2719aa9d5cc8f959961569cbd30a34b3",
+            "locality": "The Ridge",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9300 for two",
+            "cuisines": [
+                "North Indian",
+                "Continental",
+                "Pizzas",
+                "Pastas",
+                "Snacks",
+                "Desserts"
+            ],
+            "avgRating": 4.4,
+            "parentId": "205825",
+            "avgRatingString": "4.4",
+            "totalRatingsString": "50+",
+            "sla": {
+                "deliveryTime": 42,
+                "lastMileTravel": 3,
+                "serviceability": "SERVICEABLE",
+                "slaString": "40-45 mins",
+                "lastMileTravelString": "3.0 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "10% OFF",
+                "subHeader": "UPTO \u20B940"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/the-brew-estate-the-ridge-mall-road-shimla-724816",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "708032",
+            "name": "Wood Street Cafe",
+            "cloudinaryImageId": "5b17fc2fe703cfaa5478f2994fdf2e1d",
+            "locality": "Lakkar Bazzar Shimla",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9350 for two",
+            "cuisines": [
                 "Pizzas",
                 "Pastas",
                 "Beverages",
                 "Desserts",
                 "Burgers"
             ],
-            avgRating: 4.5,
-            parentId: "423257",
-            avgRatingString: "4.5",
-            totalRatingsString: "100+",
-            sla: {
-                deliveryTime: 47,
-                lastMileTravel: 3.7,
-                serviceability: "SERVICEABLE",
-                slaString: "45-50 mins",
-                lastMileTravelString: "3.7 km",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 4.5,
+            "parentId": "423257",
+            "avgRatingString": "4.5",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 52,
+                "lastMileTravel": 3.7,
+                "serviceability": "SERVICEABLE",
+                "slaString": "50-55 mins",
+                "lastMileTravelString": "3.7 km",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 19:00:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 19:00:00",
+                "opened": true
             },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
                 }
             },
-            aggregatedDiscountInfoV3: {
-                header: "\u20B9125 OFF",
-                subHeader: "ABOVE \u20B9199",
-                discountTag: "FLAT DEAL"
+            "aggregatedDiscountInfoV3": {
+                "header": "10% OFF",
+                "subHeader": "ABOVE \u20B9149",
+                "discountTag": "FLAT DEAL"
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=708032",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/wood-street-cafe-lakkar-bazzar-mall-road-shimla-708032",
+            "type": "WEBLINK"
         }
     },
     {
-        info: {
-            id: "121094",
-            name: "Pyramid",
-            cloudinaryImageId: "8679ecfda4b61dbb39bb1f20ff8042c2",
-            locality: "Bridge View Recency",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
-                "Chinese",
-                "Cafe",
-                "Fast Food"
-            ],
-            avgRating: 4.2,
-            parentId: "9044",
-            avgRatingString: "4.2",
-            totalRatingsString: "100+",
-            sla: {
-                deliveryTime: 43,
-                lastMileTravel: 3.6,
-                serviceability: "SERVICEABLE",
-                slaString: "40-45 mins",
-                lastMileTravelString: "3.6 km",
-                iconType: "ICON_TYPE_EMPTY"
-            },
-            availability: {
-                nextCloseTime: "2024-08-03 22:00:00",
-                opened: true
-            },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    imageBased: {},
-                    textExtendedBadges: {},
-                    textBased: {}
-                }
-            },
-            aggregatedDiscountInfoV3: {
-                header: "40% OFF",
-                subHeader: "UPTO \u20B980"
-            },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
-                }
-            },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
-                }
-            },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-        },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=121094",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
-        }
-    },
-    {
-        info: {
-            id: "710661",
-            name: "Quick Tandoori Momos",
-            cloudinaryImageId: "78496292e873af768399a279e1ab0df0",
-            locality: "The Mall",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9200 for two",
-            cuisines: [
+        "info": {
+            "id": "119976",
+            "name": "Beekays",
+            "cloudinaryImageId": "gznw0q7atngeb2w1e49m",
+            "locality": "Mall Road",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9150 for two",
+            "cuisines": [
+                "Bakery",
+                "Pizzas",
+                "Desserts",
+                "Fast Food",
                 "Chinese"
             ],
-            avgRating: 4,
-            parentId: "163518",
-            avgRatingString: "4.0",
-            totalRatingsString: "9",
-            sla: {
-                deliveryTime: 26,
-                serviceability: "SERVICEABLE",
-                slaString: "25-30 mins",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 4.2,
+            "parentId": "42979",
+            "avgRatingString": "4.2",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 38,
+                "lastMileTravel": 2.7,
+                "serviceability": "SERVICEABLE",
+                "slaString": "35-40 mins",
+                "lastMileTravelString": "2.7 km",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 19:30:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 21:30:00",
+                "opened": true
             },
-            badges: {},
-            isOpen: true,
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
                 }
             },
-            aggregatedDiscountInfoV3: {
-                header: "\u20B9125 OFF",
-                subHeader: "ABOVE \u20B9299",
-                discountTag: "FLAT DEAL"
+            "aggregatedDiscountInfoV3": {
+                "header": "10% OFF",
+                "subHeader": "ABOVE \u20B9500",
+                "discountTag": "FLAT DEAL"
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=710661",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/beekays-mall-road-shimla-119976",
+            "type": "WEBLINK"
         }
     },
     {
-        info: {
-            id: "119272",
-            name: "Deepak Pizza Paradise",
-            cloudinaryImageId: "fvkp3dajejstdec5luhb",
-            locality: "Mall Road",
-            areaName: "Mall Road",
-            costForTwo: "\u20B9150 for two",
-            cuisines: [
-                "Chinese",
-                "Italian"
+        "info": {
+            "id": "651216",
+            "name": "McDonald's",
+            "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/8/14/e996588f-9904-46d1-a7b4-f25c14038607_651216.JPG",
+            "locality": "Shimla",
+            "areaName": "Tehsil Shimla",
+            "costForTwo": "\u20B9400 for two",
+            "cuisines": [
+                "American",
+                "Fast Food"
             ],
-            avgRating: 4,
-            veg: true,
-            parentId: "69559",
-            avgRatingString: "4.0",
-            totalRatingsString: "100+",
-            sla: {
-                deliveryTime: 28,
-                serviceability: "SERVICEABLE",
-                slaString: "25-30 mins",
-                iconType: "ICON_TYPE_EMPTY"
+            "avgRating": 4.4,
+            "parentId": "630",
+            "avgRatingString": "4.4",
+            "totalRatingsString": "500+",
+            "sla": {
+                "deliveryTime": 32,
+                "lastMileTravel": 3,
+                "serviceability": "SERVICEABLE",
+                "slaString": "30-35 mins",
+                "lastMileTravelString": "3.0 km",
+                "iconType": "ICON_TYPE_EMPTY"
             },
-            availability: {
-                nextCloseTime: "2024-08-03 21:30:00",
-                opened: true
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
             },
-            badges: {},
-            isOpen: true,
-            aggregatedDiscountInfoV2: {},
-            type: "F",
-            badgesV2: {
-                entityBadges: {
-                    textBased: {},
-                    imageBased: {},
-                    textExtendedBadges: {}
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
                 }
             },
-            differentiatedUi: {
-                displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                differentiatedUiMediaDetails: {
-                    mediaType: "ADS_MEDIA_ENUM_IMAGE",
-                    lottie: {},
-                    video: {}
+            "aggregatedDiscountInfoV3": {
+                "header": "ITEMS",
+                "subHeader": "AT \u20B949"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
                 }
             },
-            reviewsSummary: {},
-            displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-            restaurantOfferPresentationInfo: {},
-            externalRatings: {
-                aggregatedRating: {
-                    rating: "--"
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
                 }
             },
-            ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
         },
-        analytics: {},
-        cta: {
-            link: "swiggy://menu?restaurant_id=119272",
-            text: "RESTAURANT_MENU",
-            type: "DEEPLINK"
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/mcdonalds-tehsil-shimla-shimla-651216",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "121100",
+            "name": "Pyramid Express",
+            "cloudinaryImageId": "sqdtvs3lic6tpw4ni3vc",
+            "locality": "Mall Road",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9300 for two",
+            "cuisines": [
+                "Chinese",
+                "Biryani",
+                "Fast Food",
+                "Pizzas"
+            ],
+            "avgRating": 4.3,
+            "parentId": "163125",
+            "avgRatingString": "4.3",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 49,
+                "lastMileTravel": 3.6,
+                "serviceability": "SERVICEABLE",
+                "slaString": "45-50 mins",
+                "lastMileTravelString": "3.6 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "40% OFF",
+                "subHeader": "UPTO \u20B980"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/pyramid-express-mall-road-shimla-121100",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "122637",
+            "name": "Logo Cafe",
+            "cloudinaryImageId": "lo3gm3erpiwbmms7to7w",
+            "locality": "Mall Road",
+            "areaName": "Lakkar Bazar",
+            "costForTwo": "\u20B9200 for two",
+            "cuisines": [
+                "Chinese",
+                "Fast Food",
+                "Beverages",
+                "Pizzas",
+                "North Indian"
+            ],
+            "avgRating": 4.1,
+            "parentId": "453350",
+            "avgRatingString": "4.1",
+            "totalRatingsString": "500+",
+            "sla": {
+                "deliveryTime": 44,
+                "lastMileTravel": 3.6,
+                "serviceability": "SERVICEABLE",
+                "slaString": "40-45 mins",
+                "lastMileTravelString": "3.6 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "aggregatedDiscountInfoV2": {},
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/logo-cafe-mall-road-lakkar-bazar-shimla-122637",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "542555",
+            "name": "Auckland Hotel And Restaurant",
+            "cloudinaryImageId": "i99cug9tzdai5lisu8nf",
+            "locality": "Mall Road",
+            "areaName": "Longwood",
+            "costForTwo": "\u20B9100 for two",
+            "cuisines": [
+                "South Indian",
+                "Chinese",
+                "Beverages",
+                "Biryani"
+            ],
+            "avgRating": 4,
+            "parentId": "326068",
+            "avgRatingString": "4.0",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 44,
+                "lastMileTravel": 3,
+                "serviceability": "SERVICEABLE",
+                "slaString": "40-45 mins",
+                "lastMileTravelString": "3.0 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "10% OFF",
+                "subHeader": "UPTO \u20B940"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/auckland-hotel-and-restaurant-mall-road-longwood-shimla-542555",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "119851",
+            "name": "Jashan Restaurant",
+            "cloudinaryImageId": "rgylmuwfv0hljjn0i6pr",
+            "locality": "Mall Road",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9250 for two",
+            "cuisines": [
+                "North Indian",
+                "Chinese",
+                "Tandoor",
+                "Biryani",
+                "Beverages",
+                "Mughlai"
+            ],
+            "avgRating": 4.1,
+            "parentId": "109784",
+            "avgRatingString": "4.1",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 45,
+                "lastMileTravel": 3,
+                "serviceability": "SERVICEABLE",
+                "slaString": "45-50 mins",
+                "lastMileTravelString": "3.0 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "\u20B9125 OFF",
+                "subHeader": "ABOVE \u20B9399",
+                "discountTag": "FLAT DEAL"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/jashan-restaurant-mall-road-shimla-119851",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "710322",
+            "name": "37 The Central Restaurant",
+            "cloudinaryImageId": "6fbc79e6eb996251abae94dcc8c28c14",
+            "locality": "Town Hall",
+            "areaName": "Mall Road",
+            "costForTwo": "\u20B9300 for two",
+            "cuisines": [
+                "North Indian",
+                "Chinese",
+                "Biryani",
+                "Snacks",
+                "Desserts",
+                "Pizzas"
+            ],
+            "avgRating": 4,
+            "parentId": "424377",
+            "avgRatingString": "4.0",
+            "totalRatingsString": "100+",
+            "sla": {
+                "deliveryTime": 45,
+                "lastMileTravel": 2.8,
+                "serviceability": "SERVICEABLE",
+                "slaString": "45-50 mins",
+                "lastMileTravelString": "2.8 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 22:00:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "\u20B9125 OFF",
+                "subHeader": "ABOVE \u20B9399",
+                "discountTag": "FLAT DEAL"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/37-the-central-restaurant-town-hall-mall-road-shimla-710322",
+            "type": "WEBLINK"
+        }
+    },
+    {
+        "info": {
+            "id": "119853",
+            "name": "La Pino'z Pizza",
+            "cloudinaryImageId": "pwx6uipgvfd5e8vj4kzd",
+            "locality": "Mall Road",
+            "areaName": "Longwood",
+            "costForTwo": "\u20B9400 for two",
+            "cuisines": [
+                "Pizzas",
+                "Pastas",
+                "Italian",
+                "Desserts",
+                "Beverages"
+            ],
+            "avgRating": 3.8,
+            "parentId": "4961",
+            "avgRatingString": "3.8",
+            "totalRatingsString": "500+",
+            "sla": {
+                "deliveryTime": 43,
+                "lastMileTravel": 3,
+                "serviceability": "SERVICEABLE",
+                "slaString": "40-45 mins",
+                "lastMileTravelString": "3.0 km",
+                "iconType": "ICON_TYPE_EMPTY"
+            },
+            "availability": {
+                "nextCloseTime": "2024-08-15 21:30:00",
+                "opened": true
+            },
+            "badges": {},
+            "isOpen": true,
+            "type": "F",
+            "badgesV2": {
+                "entityBadges": {
+                    "imageBased": {},
+                    "textBased": {},
+                    "textExtendedBadges": {}
+                }
+            },
+            "aggregatedDiscountInfoV3": {
+                "header": "ITEMS",
+                "subHeader": "AT \u20B9159"
+            },
+            "differentiatedUi": {
+                "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+                "differentiatedUiMediaDetails": {
+                    "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                    "lottie": {},
+                    "video": {}
+                }
+            },
+            "reviewsSummary": {},
+            "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+            "restaurantOfferPresentationInfo": {},
+            "externalRatings": {
+                "aggregatedRating": {
+                    "rating": "--"
+                }
+            },
+            "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+        },
+        "analytics": {},
+        "cta": {
+            "link": "https://www.swiggy.com/restaurants/la-pinoz-pizza-mall-road-longwood-shimla-119853",
+            "type": "WEBLINK"
         }
     }
 ];
